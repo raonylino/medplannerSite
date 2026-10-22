@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Check, Mail, ShieldCheck } from "lucide-react";
+export const metadata: Metadata = { title: "Cadastro recebido | MedPlanner", robots: { index: false, follow: false } };
+export default function Page() { return <main className="message-page"><Link className="auth-brand" href="/"><span className="brand-mark"><span>✳</span></span><span>Med<span>Planner</span></span></Link><section className="message-card"><span className="message-icon"><Mail size={26}/></span><span className="auth-card-kicker"><span/> SÓ FALTA UM PASSO</span><h1>Confira seu e-mail.</h1><p>Enviamos um link para confirmar seu cadastro. Depois de confirmar, volte ao MedPlanner para entrar na sua conta.</p><div className="message-tip"><ShieldCheck size={18}/> Se não encontrar, confira também a pasta de spam.</div><Link className="button button-lime message-button" href="/entrar">Ir para o login <Check size={16}/></Link></section><small className="auth-foot"><ShieldCheck size={13}/> Um espaço seguro para cuidar do que importa.</small></main>; }

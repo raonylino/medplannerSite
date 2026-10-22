@@ -1,69 +1,38 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronRight, CircleHelp, CreditCard, LockKeyhole, Menu, PieChart, ShieldCheck, Sparkles, Wallet, ChartNoAxesCombined } from "lucide-react";
 
-export default function Home() {
+const benefits = [
+  { icon: Wallet, title: "Saiba o que realmente sobra", body: "Veja suas entradas e despesas em um só lugar e entenda o seu mês sem planilhas complicadas." },
+  { icon: ChartNoAxesCombined, title: "Planeje com mais confiança", body: "Organize compromissos futuros, acompanhe cartões e crie metas que cabem na sua realidade." },
+  { icon: ShieldCheck, title: "Sua conta em um só lugar", body: "Acompanhe suas informações no site e no aplicativo, com sincronização quando houver conexão." },
+];
+
+const features = ["Entradas e serviços", "Resumo financeiro mensal", "Cálculo de impostos e investimentos", "Planejamento de despesas", "Cartões e parcelas", "Metas financeiras"];
+
+function MockDashboard() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="product-window" aria-label="Prévia ilustrativa do painel financeiro MedPlanner">
+      <div className="window-top"><div className="window-dots"><i/><i/><i/></div><span>Prévia ilustrativa</span><div className="avatar">R</div></div>
+      <div className="product-content">
+        <div className="product-heading"><div><span className="eyebrow">TERÇA-FEIRA, 20 DE OUTUBRO</span><h2>Bom dia, Raony <span>✳</span></h2><p>Veja como está sua vida financeira.</p></div><div className="month-pill">Outubro 2026⌄</div></div>
+        <div className="balance-card"><div className="balance-label">Saldo projetado <span>◉</span></div><div className="balance-value">R$ 12.840<span>,00</span></div><div className="balance-foot"><span className="positive"><ArrowUpRight size={14}/> 8,4%</span> em relação ao mês passado</div><div className="balance-chart"><svg viewBox="0 0 640 88" preserveAspectRatio="none" role="img" aria-label="Gráfico de saldo crescente"><defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#B7F500" stopOpacity=".28"/><stop offset="1" stopColor="#B7F500" stopOpacity="0"/></linearGradient></defs><path d="M0 72 C45 70 45 59 82 62 S120 42 155 53 S202 50 242 54 S275 38 320 43 S370 24 402 39 S449 32 490 25 S544 35 574 18 S612 22 640 8 V88 H0Z" fill="url(#fill)"/><path d="M0 72 C45 70 45 59 82 62 S120 42 155 53 S202 50 242 54 S275 38 320 43 S370 24 402 39 S449 32 490 25 S544 35 574 18 S612 22 640 8" fill="none" stroke="#B7F500" strokeWidth="2.5"/></svg></div></div>
+        <div className="mini-stats"><div><span><ArrowDown size={14}/> Entradas</span><strong>R$ 18.500</strong><small>este mês</small></div><div><span className="out-label">↗ Despesas</span><strong>R$ 5.660</strong><small>este mês</small></div></div>
+        <div className="recent-card"><div className="recent-head"><strong>Próximos compromissos</strong><span>Ver todos <ChevronRight size={14}/></span></div><div className="recent-row"><div className="row-icon lime-icon"><CreditCard size={17}/></div><div><b>Aluguel do consultório</b><small>Moradia · 25 Out</small></div><strong>− R$ 1.800</strong></div><div className="recent-row"><div className="row-icon blue-icon"><Wallet size={17}/></div><div><b>Consulta particular</b><small>Atendimento · 27 Out</small></div><strong className="green-text">+ R$ 450</strong></div></div>
+      </div>
+      <div className="float-note"><span className="note-icon">✦</span><div><b>Mês sob controle</b><small>Seu planejamento está em dia</small></div><span className="note-check"><Check size={14}/></span></div>
     </div>
   );
+}
+
+export default function Home() {
+  return <main>
+    <header className="site-header"><Link className="brand" href="/"><span className="brand-mark"><ChartNoAxesCombined size={19}/></span><span>Med<span>Planner</span></span></Link><nav className="main-nav"><a href="#beneficios">Benefícios</a><a href="#como-funciona">Como funciona</a><a href="#planos">Planos</a></nav><div className="header-actions"><Link className="login-link" href="/entrar">Entrar</Link><Link className="button button-dark header-cta" href="/criar-conta">Começar grátis <ArrowRight size={16}/></Link><details className="mobile-menu"><summary aria-label="Abrir menu"><Menu/></summary><div className="mobile-menu-items"><a href="#beneficios">Benefícios</a><a href="#como-funciona">Como funciona</a><a href="#planos">Planos</a><Link href="/entrar">Entrar</Link><Link href="/criar-conta">Começar grátis</Link></div></details></div></header>
+    <section className="hero"><div className="hero-glow"/><div className="hero-copy"><div className="announcement"><span className="announcement-dot"/> FINANÇAS MAIS LEVES PARA QUEM FAZ ACONTECER</div><h1>Você cuida do seu trabalho.<br/><em>Cuide bem do seu dinheiro.</em></h1><p className="hero-description">Uma vida financeira mais clara começa quando tudo se organiza. O MedPlanner ajuda profissionais PJ a acompanhar entradas, planejar despesas e tomar decisões com tranquilidade.</p><div className="hero-actions"><Link className="button button-lime button-large" href="/criar-conta">Experimente grátis <ArrowRight size={17}/></Link><a className="text-link" href="#como-funciona">Conheça o MedPlanner <ArrowDown size={15}/></a></div><div className="trust-line"><div className="trust-avatars"><span>R</span><span>M</span><span>A</span></div><p><b>Feito para a sua rotina</b><br/>Simples de começar, fácil de acompanhar.</p><div className="trust-separator"/><div className="trust-safe"><LockKeyhole size={15}/> Seus dados protegidos</div></div></div><div className="hero-visual"><div className="visual-orbit orbit-one"/><div className="visual-orbit orbit-two"/><div className="visual-kicker"><span/> CLAREZA PARA SEGUIR EM FRENTE</div><MockDashboard/><div className="visual-caption"><span className="caption-star">✳</span><div><b>Seu dinheiro com direção.</b><small>Um passo de cada vez.</small></div></div></div><div className="hero-bottom-note"><span>01</span><span className="bottom-line"/><span>Menos confusão. Mais clareza.</span></div></section>
+    <section className="trust-strip"><span>FEITO PARA A VIDA REAL DE QUEM É PJ</span><div className="strip-items"><span><Check/> Entradas organizadas</span><span><Check/> Planejamento simples</span><span><Check/> Visão do seu mês</span></div></section>
+    <section className="benefits section-pad" id="beneficios"><div className="section-intro"><div className="section-label"><span/> UM JEITO MAIS CLARO DE CUIDAR</div><h2>Seu financeiro pode<br/><em>ser mais simples.</em></h2><p>Você não precisa ser especialista em finanças para entender para onde seu dinheiro está indo.</p></div><div className="benefit-grid">{benefits.map((item,index)=><article className="benefit-card" key={item.title}><div className={`benefit-icon benefit-${index}`}><item.icon size={21}/></div><span className="benefit-number">0{index+1}</span><h3>{item.title}</h3><p>{item.body}</p><a href="#como-funciona">Descubra como <ArrowUpRight size={15}/></a></article>)}</div></section>
+    <section className="how-section section-pad" id="como-funciona"><div className="how-left"><div className="section-label"><span/> UM COMEÇO DESCOMPLICADO</div><h2>Organização que<br/>acompanha <em>seu ritmo.</em></h2><p>Comece pelo essencial e vá evoluindo com o MedPlanner. O app mantém seus dados no aparelho e sincroniza sua conta quando houver conexão.</p><Link className="button button-lime" href="/criar-conta">Criar minha conta <ArrowRight size={16}/></Link><div className="privacy-note"><ShieldCheck size={18}/><span><b>Privacidade em primeiro lugar</b><small>Seus dados financeiros pertencem a você.</small></span></div></div><div className="steps"><article><span className="step-icon"><Wallet size={20}/></span><div><span>PASSO 01</span><h3>Registre o que entra</h3><p>Cadastre seus serviços, valores e recebimentos.</p></div></article><article><span className="step-icon"><PieChart size={20}/></span><div><span>PASSO 02</span><h3>Entenda o seu mês</h3><p>Veja seu saldo projetado, despesas e compromissos.</p></div></article><article><span className="step-icon"><Sparkles size={20}/></span><div><span>PASSO 03</span><h3>Decida com confiança</h3><p>Use cálculos e planejamento para dar o próximo passo.</p></div></article></div></section>
+    <section className="features-section section-pad" id="planos"><div className="features-heading"><div><div className="section-label"><span/> O ESSENCIAL E O PRÓXIMO PASSO</div><h2>Comece grátis.<br/><em>Cresça no seu tempo.</em></h2></div><p>Use as ferramentas gratuitas para criar clareza hoje. Quando precisar de mais, o MedPlanner terá recursos avançados para acompanhar você.</p></div><div className="plan-cards"><article className="plan-card free-plan"><div className="plan-top"><span className="plan-label">PARA COMEÇAR</span><span className="plan-symbol"><Wallet size={18}/></span></div><h3>Gratuito</h3><p>Uma base simples para cuidar melhor do seu financeiro.</p><ul>{features.slice(0,3).map(f=><li key={f}><Check size={15}/>{f}</li>)}</ul><Link className="button button-outline" href="/criar-conta">Criar conta gratuita <ArrowRight size={16}/></Link><small>Sem cartão de crédito.</small></article><article className="plan-card pro-plan"><div className="plan-top"><span className="plan-label">PARA TER MAIS CONTROLE</span><span className="plan-symbol"><Sparkles size={18}/></span></div><h3>MedPlanner Plus</h3><p>Mais ferramentas para planejar e acompanhar seus objetivos.</p><ul>{features.slice(3).map(f=><li key={f}><Check size={15}/>{f}</li>)}</ul><div className="coming-soon"><span className="coming-dot"/> Em breve</div><small>Os valores e a assinatura serão divulgados em breve.</small></article></div><p className="plans-footnote"><CircleHelp size={15}/> O acesso ao plano pago será liberado quando a assinatura estiver disponível.</p></section>
+    <section className="closing-cta"><div className="closing-spark">✳</div><div><span>SEU PRÓXIMO PASSO PODE SER MAIS LEVE</span><h2>Mais clareza para cuidar<br/>do que você está construindo.</h2></div><Link className="button button-lime" href="/criar-conta">Começar gratuitamente <ArrowRight size={16}/></Link><span className="closing-decoration">M</span></section>
+    <footer className="site-footer"><Link className="brand" href="/"><span className="brand-mark"><ChartNoAxesCombined size={19}/></span><span>Med<span>Planner</span></span></Link><p>Mais clareza para cuidar do seu dinheiro.</p><div><Link href="/entrar">Entrar</Link><Link href="/criar-conta">Criar conta</Link><a href="#beneficios">Sobre o MedPlanner</a></div><small>© 2026 MedPlanner. Todos os direitos reservados.</small></footer>
+  </main>;
 }
